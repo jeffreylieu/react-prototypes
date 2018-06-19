@@ -15,7 +15,6 @@ class App extends Component{
     }
 
     addContact(contact){
-        console.log('App: addComponent:', contact);
         const newContacts = this.state.contacts.slice();
         newContacts.unshift(contact);
         this.setState({
