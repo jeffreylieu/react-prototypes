@@ -15,10 +15,9 @@ class MoviesContainer extends Component {
     componentWillMount(){
         const url = 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topMovies/json';
         axios.get(url).then((resp)=>{
-            console.log('RESP:', resp);
 
             this.setState({
-                movies: resp.data.feed.entry //left off here!!
+                movies: resp.data.feed.entry
             });
         });
     }
@@ -27,10 +26,9 @@ class MoviesContainer extends Component {
         const movieList = this.state.movies.map((movieInfo, index)=>{
             return <Movie info={movieInfo} key={index}/>
         });
-        console.log('This state is:', this.state);
         return(
             <div>
-                <Movie/>
+                {movieList}
             </div>
         )
     }
